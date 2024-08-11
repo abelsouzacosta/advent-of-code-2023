@@ -32,18 +32,30 @@ local function getFirstNumber(string)
 	end
 end
 
+-- reverses the line given and returns the first number found
+local function getLastNumber(string)
+	local reversedString = reverse(string)
+	for i = 1, #reversedString do
+		local char = reversedString:sub(i, i)
+		if isNumber(char) then
+			return char
+		end
+	end
+end
+
 local function readfile()
 	-- open the file
 	local input = openfile("/home/junior/www/advent-of-code-2023/data/input.txt", "r")
 
 	for line in input:lines() do
-		print(line)
+		local first = getFirstNumber(line)
+		local last = getLastNumber(line)
+		local number = first .. last
+		print(number)
 	end
 
 	-- manually closes the file
 	input:close()
 end
 
-local result = reverse("dr4acu5la")
-local first = getFirstNumber("dr4acu5la")
-print(result, first)
+readfile()
