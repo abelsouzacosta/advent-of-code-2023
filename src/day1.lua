@@ -1,4 +1,4 @@
-function openfile(filename, mode)
+local function openfile(filename, mode)
 	local file, error = io.open(filename, mode)
 	if error then
 		print("There was an error trying to open the file")
@@ -32,7 +32,7 @@ local function getFirstNumber(string)
 	end
 end
 
-function readfile()
+local function readfile()
 	-- open the file
 	local input = openfile("/home/junior/www/advent-of-code-2023/data/input.txt", "r")
 
