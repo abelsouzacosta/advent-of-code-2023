@@ -43,14 +43,23 @@ local function getLastNumber(string)
 	end
 end
 
+
+-- will return the number in the line
+-- the number is formed by the first and the last number found in the line
+local function getLineNumber(line)
+	local first = getFirstNumber(line)
+	local last = getLastNumber(line)
+	local number = first .. last
+
+	return tonumber(number)
+end
+
 local function readfile()
 	-- open the file
 	local input = openfile("/home/junior/www/advent-of-code-2023/data/input.txt", "r")
 
 	for line in input:lines() do
-		local first = getFirstNumber(line)
-		local last = getLastNumber(line)
-		local number = first .. last
+		local number = getLineNumber(line)
 		print(number)
 	end
 
