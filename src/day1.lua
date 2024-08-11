@@ -54,7 +54,7 @@ local function getLineNumber(line)
 	return tonumber(number)
 end
 
-local function readfile()
+local function processfile()
 	-- open the file
 	local input = openfile("/home/junior/www/advent-of-code-2023/data/input.txt", "r")
 
@@ -67,4 +67,4 @@ local function readfile()
 	input:close()
 end
 
-readfile()
+processfile()
